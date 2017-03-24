@@ -7,6 +7,7 @@ package examen_2_franklin_garcia;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -44,12 +45,12 @@ public class principal extends javax.swing.JFrame {
         eliminar_usuarios = new javax.swing.JDialog();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabla_eliminar_usuarios = new javax.swing.JTable();
         jButton5 = new javax.swing.JButton();
         listar_usuarios = new javax.swing.JDialog();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tabla_listar_usuarios = new javax.swing.JTable();
         crear_album = new javax.swing.JDialog();
         eliminar_album = new javax.swing.JDialog();
         listar_album = new javax.swing.JDialog();
@@ -82,6 +83,7 @@ public class principal extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         tf_usuario = new javax.swing.JTextField();
         tf_contrasena = new javax.swing.JPasswordField();
+        jButton10 = new javax.swing.JButton();
 
         jLabel1.setText("Nombre");
 
@@ -162,9 +164,15 @@ public class principal extends javax.swing.JFrame {
                 .addContainerGap(91, Short.MAX_VALUE))
         );
 
+        eliminar_usuarios.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                eliminar_usuariosWindowActivated(evt);
+            }
+        });
+
         jLabel6.setText("Eliminar usuarios");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabla_eliminar_usuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -172,9 +180,14 @@ public class principal extends javax.swing.JFrame {
                 "Username", "Nombre", "Edad"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tabla_eliminar_usuarios);
 
         jButton5.setText("Eliminar");
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton5MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout eliminar_usuariosLayout = new javax.swing.GroupLayout(eliminar_usuarios.getContentPane());
         eliminar_usuarios.getContentPane().setLayout(eliminar_usuariosLayout);
@@ -182,16 +195,16 @@ public class principal extends javax.swing.JFrame {
             eliminar_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(eliminar_usuariosLayout.createSequentialGroup()
                 .addGroup(eliminar_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, eliminar_usuariosLayout.createSequentialGroup()
+                    .addGroup(eliminar_usuariosLayout.createSequentialGroup()
                         .addContainerGap(20, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 717, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(eliminar_usuariosLayout.createSequentialGroup()
                         .addGroup(eliminar_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(eliminar_usuariosLayout.createSequentialGroup()
-                                .addGap(291, 291, 291)
+                                .addGap(317, 317, 317)
                                 .addComponent(jLabel6))
                             .addGroup(eliminar_usuariosLayout.createSequentialGroup()
-                                .addGap(296, 296, 296)
+                                .addGap(339, 339, 339)
                                 .addComponent(jButton5)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -199,18 +212,24 @@ public class principal extends javax.swing.JFrame {
         eliminar_usuariosLayout.setVerticalGroup(
             eliminar_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(eliminar_usuariosLayout.createSequentialGroup()
-                .addGap(55, 55, 55)
+                .addGap(64, 64, 64)
                 .addComponent(jLabel6)
-                .addGap(45, 45, 45)
+                .addGap(36, 36, 36)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54)
+                .addGap(50, 50, 50)
                 .addComponent(jButton5)
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
+
+        listar_usuarios.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                listar_usuariosWindowActivated(evt);
+            }
+        });
 
         jLabel7.setText("Listar todos los usuarios");
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tabla_listar_usuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -218,27 +237,27 @@ public class principal extends javax.swing.JFrame {
                 "Usuarios", "Nombre", "Edad"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(tabla_listar_usuarios);
 
         javax.swing.GroupLayout listar_usuariosLayout = new javax.swing.GroupLayout(listar_usuarios.getContentPane());
         listar_usuarios.getContentPane().setLayout(listar_usuariosLayout);
         listar_usuariosLayout.setHorizontalGroup(
             listar_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(listar_usuariosLayout.createSequentialGroup()
-                .addGap(285, 285, 285)
-                .addComponent(jLabel7)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, listar_usuariosLayout.createSequentialGroup()
                 .addContainerGap(26, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 727, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addGroup(listar_usuariosLayout.createSequentialGroup()
+                .addGap(309, 309, 309)
+                .addComponent(jLabel7)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         listar_usuariosLayout.setVerticalGroup(
             listar_usuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(listar_usuariosLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addContainerGap(51, Short.MAX_VALUE)
                 .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                .addGap(47, 47, 47)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(45, 45, 45))
         );
@@ -247,11 +266,11 @@ public class principal extends javax.swing.JFrame {
         crear_album.getContentPane().setLayout(crear_albumLayout);
         crear_albumLayout.setHorizontalGroup(
             crear_albumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 687, Short.MAX_VALUE)
         );
         crear_albumLayout.setVerticalGroup(
             crear_albumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 406, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout eliminar_albumLayout = new javax.swing.GroupLayout(eliminar_album.getContentPane());
@@ -476,6 +495,8 @@ public class principal extends javax.swing.JFrame {
 
         jLabel16.setText("Contraseña");
 
+        jButton10.setText("Ingresar");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -493,7 +514,10 @@ public class principal extends javax.swing.JFrame {
                         .addGap(50, 50, 50)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(tf_usuario)
-                            .addComponent(tf_contrasena, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE))))
+                            .addComponent(tf_contrasena, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(288, 288, 288)
+                        .addComponent(jButton10)))
                 .addContainerGap(178, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -509,7 +533,9 @@ public class principal extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
                     .addComponent(tf_contrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(230, Short.MAX_VALUE))
+                .addGap(69, 69, 69)
+                .addComponent(jButton10)
+                .addContainerGap(138, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Log in", jPanel4);
@@ -566,6 +592,8 @@ public class principal extends javax.swing.JFrame {
         eliminar_album.setLocationRelativeTo(this);
         eliminar_album.pack();
         eliminar_album.setVisible(true);
+        tabla_eliminar_usuarios.getColumnModel().removeColumn(tabla_eliminar_usuarios.getColumnModel().getColumn(0));
+
     }//GEN-LAST:event_jButton9MouseClicked
 
     private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
@@ -591,9 +619,38 @@ public class principal extends javax.swing.JFrame {
         lista_canciones = new ArrayList();
         lista_album = new ArrayList();
 
-        lista_usuarios.add(new usuarios(lista_canciones, lista_album, nombre, edad, username,password));
+        lista_usuarios.add(new usuarios(lista_canciones, lista_album, nombre, edad, username, password));
         JOptionPane.showMessageDialog(this, "Se agrego con exito");
     }//GEN-LAST:event_jButton4MouseClicked
+
+    private void eliminar_usuariosWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_eliminar_usuariosWindowActivated
+        if (eliminar_usuarios.isActive()) {
+            DefaultTableModel m = new DefaultTableModel();
+            for (usuarios temp : lista_usuarios) {
+                Object row[] = {temp.getUsername(), temp.getNombre(), temp.getEdad()};
+                m = (DefaultTableModel) tabla_eliminar_usuarios.getModel();
+                m.addRow(row);
+                tabla_eliminar_usuarios.setModel(m);
+            }
+        }
+    }//GEN-LAST:event_eliminar_usuariosWindowActivated
+
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+        lista_usuarios.remove(tabla_eliminar_usuarios.getSelectedRow());
+        JOptionPane.showMessageDialog(this, "Se elimino con exito");
+    }//GEN-LAST:event_jButton5MouseClicked
+
+    private void listar_usuariosWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_listar_usuariosWindowActivated
+        if (listar_usuarios.isActive()) {
+            DefaultTableModel m = new DefaultTableModel();
+            for (usuarios temp : lista_usuarios) {
+                Object row[] = {temp.getUsername(), temp.getNombre(), temp.getEdad()};
+                m = (DefaultTableModel) tabla_listar_usuarios.getModel();
+                m.addRow(row);
+                tabla_listar_usuarios.setModel(m);
+            }
+        }
+    }//GEN-LAST:event_listar_usuariosWindowActivated
 
     /**
      * @param args the command line arguments
@@ -637,6 +694,7 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JDialog eliminar_album;
     private javax.swing.JDialog eliminar_usuarios;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -669,8 +727,6 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
@@ -679,6 +735,8 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JDialog log_in;
     private javax.swing.JPasswordField ps_contrasena;
     private javax.swing.JSpinner sp_edad;
+    private javax.swing.JTable tabla_eliminar_usuarios;
+    private javax.swing.JTable tabla_listar_usuarios;
     private javax.swing.JPasswordField tf_contrasena;
     private javax.swing.JTextField tf_nombre;
     private javax.swing.JTextField tf_username;
